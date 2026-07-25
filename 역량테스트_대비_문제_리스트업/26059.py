@@ -1,35 +1,40 @@
 T = int(input())
 
-def classify_fruits(weight_list, k1, k2):
-    n_good = 0
-    n_normal = 0
-    n_bad = 0
+
+def ClassifyFruit(weight_list, k1, k2):
+    economy, standard, premium = 0, 0, 0
+    k1 += 0.5
+    k2 += 0.5
 
     for weight in weight_list:
-        if weight <= k1:
-            n_bad += 1
-        elif k1 < weight <= k2:
-            n_normal += 1
+        if weight < k1:
+            economy += 1
+        elif k1 <= weight < k2:
+            standard += 1
         else:
-            n_good += 1
+            premium += 1
 
-    return n_good, n_normal, n_bad, max(n_good, n_normal, n_bad) - min(n_good, n_normal, n_bad)
+    return economy, standard, premium
 
-for _ in range(T):
-    # n : 과일의 개수, weight_list : 과일의 무게 리스트, low : 세 등급에 속한 과일의 최소 개수, high : 세 등급에 속한 과일의 최대 개수
-    n , low, high = map(int, input().split())
-    weight_list = list(map(int, input().split()))
-    possible = False
-    diff_answer = 9999999
 
-    for k1 in range(low, high + 1):
-        for k2 in range(low, high + 1):
-            n_good, n_normal, n_bad, diff = classify_fruits(weight_list, k1, k2)
-            if n_good >= low and n_normal >= low and n_bad >= low and n_good <= high and n_normal <= high and n_bad <= high:
-                possible = True
-                diff_answer = min(diff_answer, diff)
+for test_case in range(1, T+1):
+    N, low, high = map(int, input().split())
+    fruit_weights = list(map(int, input().split()))
 
-    if possible:
-        print(f"#{_+1} {diff_answer}")
+    sorted_fruit_weights = sorted(fruit_weights)
+    answer = N+1
+
+    for k1 in range(N):
+        for k2 in range(k1, N):
+            economy_n, standard_n, premium_n = ClassifyFruit(fruit_weights, sorted_fruit_weights[k1], sorted_fruit_weights[k2]-1)
+
+            max_n = max(economy_n, standard_n, premium_n)
+            min_n = min(economy_n, standard_n, premium_n)
+
+            if low <= min_n and high >= max_n:
+                answer = min(answer, max_n - min_n)
+
+    if answer == N+1:
+        print(f"#{test_case} -1")
     else:
-        print(f'#{_+1} -1')
+        print(f"#{test_case} {answer}")
