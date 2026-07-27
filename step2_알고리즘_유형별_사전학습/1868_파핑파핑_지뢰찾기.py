@@ -29,45 +29,26 @@ for test_case in range(T):
         for col in range(N):
             if table[row][col] == '.':
                 if is_zero(row, col) and is_opened_by_other[row][col] == 0:
-                    table[row][col] = '0'
                     count += 1
-                    for dir in dirs:
-                            next_row = row + dir[0]
-                            next_col = col + dir[1]
-                    
+                    is_opened_by_other[row][col] = 1
+
+                    q = deque([(row, col)])          
+                    while q:
+                        r, c = q.popleft()
+                        if not is_zero(r, c):        
+                            continue
+                        for dir in dirs:
+                            next_row = r + dir[0]
+                            next_col = c + dir[1]
+
                             if 0 <= next_row < N and 0 <= next_col < N:
-                                is_opened_by_other[next_row][next_col] = 1
-                               
-
-    q = deque()
-    for row in range(N):
-        for col in range(N):
-            if is_opened_by_other[row][col] == 1:
-                q.append((row, col))    
-
-    while q:
-        row, col = q.popleft()
-        if is_zero(row, col):
-            table[row][col] = '0'
-            for dir in dirs:
-                next_row = row + dir[0]
-                next_col = col + dir[1]
-
-                if 0 <= next_row < N and 0 <= next_col < N:
-                    is_opened_by_other[next_row][next_col] = 1
-                    if is_opened_by_other[next_row][next_col] == 1 and table[next_row][next_col] == '.':
-                        q.append((next_row, next_col))
-        else:
-            table[row][col] = '1'
-
+                                if table[next_row][next_col] == '.' and is_opened_by_other[next_row][next_col] == 0:
+                                    is_opened_by_other[next_row][next_col] = 1
+                                    q.append((next_row, next_col))
 
     for row in range(N):
         for col in range(N):
-            if table[row][col] == '.':
-                count += 1
+            if table[row][col] == '.' and is_opened_by_other[row][col] == 0:
+                count += 1                          
 
     print(f"#{test_case + 1} {count}")
-
-
-
-
