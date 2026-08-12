@@ -1,86 +1,67 @@
+
+dr = [-1, 1, 0, 0]
+dc = [0, 0, -1, 1]
+
 T = int(input())
 
-
-# core_locations 리스트를 받아서 각 코어가 전선을 뻗을 수 있는 방향 반환하는 함수
-def core_to_line(N, maxinos, core_locations):
-    line_dirs = []
-
-    for core_location in core_locations:
-        row = core_location[0]
-        col = core_location[1]
-        tmp_dir = []
-
-        for i in range(4):
-            # 상 방향에 1이나 -1이 없는지 확인
-            flag = False
-            if i == 0:
-                for r in range(0, row):
-                    if maxinos[r][col] in (1, -1):
-                        flag = True
-            elif i == 1:
-                for r in range(row+1, N):
-                    if maxinos[r][col] in (1, -1):
-                        flag = True
-            elif i == 2:
-                for c in range(0, col):
-                    if maxinos[row][c] in (1, -1):
-                        flag = True
-            else:
-                for c in range(col+1, N):
-                    if maxinos[row][c] in (1, -1):
-                        flag = True
-
-            if flag == False:
-                tmp_dir.append(i)
-
-        line_dirs.append(tmp_dir)
-    return line_dirs
-
-
-def line_to_comb(line_dirs):
-    l = len(line_dirs)
-    total = 1
-    for i in range(l):
-        total *= len(line_dirs[i])
-
-    iters = [total] * l
-    tmp_total = total
-    for i in range(l):
-        tmp_total = int(tmp_total / len(line_dirs[i]))
-        iters[i] = tmp_total
-
-    possible_lines = [[] for _ in range(total)]
-    for idx in range(total):
-        for i in range(l):
-            d = (idx // iters[i]) % len(line_dirs[i])
-            possible_lines[idx].append(line_dirs[i][d])
-
-    return possible_lines
-
-
-
-for test_case in range(1, T+1):
+for test_case in range(1, T + 1):
     N = int(input())
-    maxinos = []
+    board = [list(map(int, input().split())) for _ in range(N)]
 
-    for i in range(N):
-        maxinos.append(list(map(int, input().split())))
+    # 가장자리 코어는 이미 연결됨 → 탐색 대상에서 제외 (보드엔 1로 남아 장애물 역할)
+    cores = []
+    for r in range(1 ,N-1):
+        for c in range(1, N-1):
+            if board[r][c] == 1:
+                cores.append((r, c))
+    M = len(cores)
 
-    # 가장자리에 붙어있는 코어는 벽(2로 작성)으로 취급해버리기
-    for row in range(N):
-        for col in range(N):
-            if (maxinos[row][col] == 1) and (row == 0 or row == N-1 or col == 0 or col == N-1):
-                maxinos[row][col] = -1
+    best_cnt, best_len = -1, 0
 
-    # 코어 위치 기록(벽으로 변환한거 빼고)
-    core_locations = []
-    for row in range(N):
-        for col in range(N):
-            if maxinos[row][col] == 1:
-                core_locations.append([row, col])
+    def dfs(idx, cnt, length):
+        global best_cnt, best_len
 
-    line_dirs = core_to_line(N, maxinos, core_locations)
-    possible_lines = line_to_comb(line_dirs)
+        # 가지치기: 남은 코어를 전부 연결해도 최고 기록을 못 넘으면 버림
+        if cnt + (M - idx) < best_cnt:
+            return
 
-    # possible lines를 돌면서, 선을 다 그었을 때 겹치는 부분(2 or bigger)이 생기면 -해주자. 
-    
+        if idx == M:
+            # 연결된 코어 수가 더 많거나 코어 수는 같은데 길이가 더 짧을 때
+            if cnt > best_cnt or (cnt == best_cnt and length < best_len):
+                best_cnt, best_len = cnt, length
+            return
+
+        r, c = cores[idx]
+        for d in range(4):
+            # 경로가 뚫려 있는지 확인
+            nr, nc, steps, ok = r + dr[d], c + dc[d], 0, True
+            while 0 <= nr < N and 0 <= nc < N:
+                if board[nr][nc] != 0:
+                    ok = False
+                    break
+                nr += dr[d]; nc += dc[d]
+                steps += 1
+            if not ok:
+                continue
+
+            # 뚫려있는 경로(상하좌우 중) 전선 그리기
+            # 코어는 제외하고 주위부터 시작
+            nr, nc = r + dr[d], c + dc[d]
+            while 0 <= nr < N and 0 <= nc < N:
+                board[nr][nc] = 2
+                nr += dr[d]
+                nc += dc[d]
+
+            dfs(idx + 1, cnt + 1, length + steps)
+
+            # 되돌리기
+            nr, nc = r + dr[d], c + dc[d]
+            while 0 <= nr < N and 0 <= nc < N:
+                board[nr][nc] = 0
+                nr += dr[d]
+                nc += dc[d]
+
+        dfs(idx + 1, cnt, length)  # 이 코어는 포기
+
+    dfs(0, 0, 0)
+    print(f'#{test_case} {best_len}')
