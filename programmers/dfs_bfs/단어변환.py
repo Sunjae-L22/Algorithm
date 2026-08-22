@@ -34,7 +34,6 @@ def solution(begin, target, words):
                 graph[j][i] = True
 
     # bfs
-    # 시작점 찾기 -> begin이랑 연결된게 없으면 0 return
     visited = [False] * n
     visited[0] = True
     # 번호, 거리
