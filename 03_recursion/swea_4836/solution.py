@@ -11,7 +11,6 @@ for tc in range(1, T + 1):
         for row in range(r1, r2+1):
             for col in range(c1, c2+1):
                 board[row][col] += color
-    print(board)
 
     cnt = 0
     for row in range(0, 10):
