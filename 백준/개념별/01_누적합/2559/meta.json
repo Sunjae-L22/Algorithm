@@ -8,8 +8,105 @@
     "sliding_window"
   ],
   "created_at": "2026-11-23T20:05:51.509935+09:00",
-  "submissions": [],
-  "reviews": [],
-  "local_test": null,
-  "blog": "undecided"
+  "submissions": [
+    {
+      "verdict": "AC",
+      "source": "user_report",
+      "evidence": "사용자가 현재 solution.py로 제출해 맞았습니다를 받았다고 확인",
+      "recorded_at": "2026-11-23T21:37:45.694297+09:00",
+      "solution_sha256": "49eefb9cc4e7d6cb846d74d31970d5ded4f9765a0f58d2dd62365c3128c6a265"
+    }
+  ],
+  "reviews": [
+    {
+      "reviewed_at": "2026-11-23T21:37:45.789979+09:00",
+      "result": "complete",
+      "note": "양 끝 포함 누적합 정의, 첫 구간과 마지막 시작일, O(N) 시간·공간 확인. 공식 2개 및 경계 4개 통과.",
+      "files": {
+        "solution.py": "49eefb9cc4e7d6cb846d74d31970d5ded4f9765a0f58d2dd62365c3128c6a265",
+        "tests/edge01.in": "f6ce95c2f2ec57ae39ce824271faecf21548be7c92cc979b8bf55224912651e3",
+        "tests/edge02.in": "035487e862dae5f5a7e03d215814ef4de7a4327a05e269c1e53b9881c2fc8b39",
+        "tests/edge03.in": "666dde2ed637c94351c52bae05b7b855290561b1c99a6353eb69cbc5167b663a",
+        "tests/edge04.in": "9fe36b83cdfd2793cd3a2c4b6fa889ca67dc239e5f5508fc80f6f5e00dba62a8",
+        "tests/sample01.in": "f94695f702ccab17ac79ca270af3e86b81480e96a3b3903d1ff943af9bcef8b8",
+        "tests/sample02.in": "1ec8986c30d2393f262c1e7a3d9ad56a68727e58d942518a20886a5d08ebaed0",
+        "tests/edge01.out": "d7b906a85360766ca93a7f2a3391ddc205bb248d2ec6e045769e67889fc1ebd5",
+        "tests/edge02.out": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+        "tests/edge03.out": "0f90e0b3538d04df294950dcec75952d7e07f1bb044e73e795c410d677b3c268",
+        "tests/edge04.out": "10159baf262b43a92d95db59dae1f72c645127301661e0a3ce4e38b295a97c58",
+        "tests/sample01.out": "6e2ae11dad0616f66bbb2b6e6556f580bb987fd911d7132aa6bee2bfc7cc7b52",
+        "tests/sample02.out": "32c2643e0dc65524c9f1f6f9f00937322fd68d59986bc381d9ff2285d23e353d"
+      },
+      "note_sha256": "9ef741fd4173f96efbfd9a66017d46f853b29c96abb8e9706742add68b37feee",
+      "next_review": "2026-11-26"
+    }
+  ],
+  "local_test": {
+    "checked_at": "2026-11-23T21:37:45.598266+09:00",
+    "python": "3.11.9",
+    "timeout_seconds": 5,
+    "files": {
+      "solution.py": "49eefb9cc4e7d6cb846d74d31970d5ded4f9765a0f58d2dd62365c3128c6a265",
+      "tests/edge01.in": "f6ce95c2f2ec57ae39ce824271faecf21548be7c92cc979b8bf55224912651e3",
+      "tests/edge02.in": "035487e862dae5f5a7e03d215814ef4de7a4327a05e269c1e53b9881c2fc8b39",
+      "tests/edge03.in": "666dde2ed637c94351c52bae05b7b855290561b1c99a6353eb69cbc5167b663a",
+      "tests/edge04.in": "9fe36b83cdfd2793cd3a2c4b6fa889ca67dc239e5f5508fc80f6f5e00dba62a8",
+      "tests/sample01.in": "f94695f702ccab17ac79ca270af3e86b81480e96a3b3903d1ff943af9bcef8b8",
+      "tests/sample02.in": "1ec8986c30d2393f262c1e7a3d9ad56a68727e58d942518a20886a5d08ebaed0",
+      "tests/edge01.out": "d7b906a85360766ca93a7f2a3391ddc205bb248d2ec6e045769e67889fc1ebd5",
+      "tests/edge02.out": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "tests/edge03.out": "0f90e0b3538d04df294950dcec75952d7e07f1bb044e73e795c410d677b3c268",
+      "tests/edge04.out": "10159baf262b43a92d95db59dae1f72c645127301661e0a3ce4e38b295a97c58",
+      "tests/sample01.out": "6e2ae11dad0616f66bbb2b6e6556f580bb987fd911d7132aa6bee2bfc7cc7b52",
+      "tests/sample02.out": "32c2643e0dc65524c9f1f6f9f00937322fd68d59986bc381d9ff2285d23e353d"
+    },
+    "cases": [
+      {
+        "name": "edge01",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0106,
+        "stderr": ""
+      },
+      {
+        "name": "edge02",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0202,
+        "stderr": ""
+      },
+      {
+        "name": "edge03",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0204,
+        "stderr": ""
+      },
+      {
+        "name": "edge04",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0204,
+        "stderr": ""
+      },
+      {
+        "name": "sample01",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0201,
+        "stderr": ""
+      },
+      {
+        "name": "sample02",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0204,
+        "stderr": ""
+      }
+    ],
+    "passed": true,
+    "note": "로컬 사례 검사이며 BOJ 채점·시간 제한 통과 증거가 아니다."
+  },
+  "blog": "candidate",
+  "blog_reason": "누적합 끝점 정의와 음수 경계 사례를 비교하는 개념 글"
 }
