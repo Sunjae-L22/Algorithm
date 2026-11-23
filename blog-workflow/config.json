@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "blog_url": "https://it-study-2002.tistory.com",
+  "notes_root": "../백준",
+  "state_dir": "state",
+  "posts_dir": "posts",
+  "language": "ko",
+  "publication_mode": "user_manual",
+  "schedule": null,
+  "git_sync": {"enabled": false}
+}

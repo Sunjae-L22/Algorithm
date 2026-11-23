@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "boj_id": 2559,
+  "title": "수열",
+  "concept": "01_누적합",
+  "tags": [
+    "prefix_sum",
+    "sliding_window"
+  ],
+  "created_at": "2026-11-23T20:05:51.509935+09:00",
+  "submissions": [],
+  "reviews": [],
+  "local_test": null,
+  "blog": "undecided"
+}

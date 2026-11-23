@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "language": "python3",
+  "boj_handle": "sunaje0111",
+  "solved_ac_handle": "sunaje0111",
+  "handle_note": "solved.ac 공개 프로필에서 연결된 BOJ sunaje0111 확인.",
+  "timezone": "Asia/Seoul",
+  "selection_cycle": [
+    "concept",
+    "practical",
+    "concept",
+    "practical",
+    "challenge"
+  ],
+  "selection_note": "5문제 기준 개념 2·실전 2·도전 1. 도전 여부는 실제 난이도·풀이시간 확인 후 조정.",
+  "default_concept": "01_누적합",
+  "review_days": [
+    3,
+    7,
+    21
+  ],
+  "local_timeout_seconds": 5,
+  "github": {
+    "repository": "Sunjae-L22/Algorithm",
+    "remote": "origin",
+    "branch": "master"
+  },
+  "blog_url": "https://it-study-2002.tistory.com",
+  "profile_status": "browser_verified",
+  "profile_checked_at": "2026-11-23",
+  "profile_note": "2026-11-23 공개 브라우저에서 프로필 및 해결 목록 9쪽 412개 확인. BOJ 실시간 동기화 지연 가능.",
+  "profile": {
+    "tier": "Gold III",
+    "rating": 1222,
+    "solved_count": 412,
+    "source": "https://solved.ac/u/sunaje0111"
+  }
+}
