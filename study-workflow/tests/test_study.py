@@ -149,6 +149,24 @@ class WorkflowTest(unittest.TestCase):
         (self.folder / "README.md").write_text("# 제목만 있는 노트\n")
         self.run_cli("review", "1", "--note", "test", "--blog", "skip", "--blog-reason", "test", ok=False)
 
+    def test_dashboard_keeps_local_pass_separate_from_online_ac(self):
+        self.passing()
+        snapshot = json.loads((self.root / "study-workflow/dashboard-data.json").read_text())
+        p = snapshot["problems"][0]
+        self.assertEqual(p["status"], "tested")
+        self.assertIsNone(p["submission"])
+        self.assertNotIn("solution_sha256", json.dumps(snapshot))
+        self.assertNotIn("sys.stdout.write", json.dumps(snapshot))
+
+    def test_dashboard_stale_profile_is_rejected(self):
+        self.passing()
+        config = self.root / "study-workflow/config.json"
+        data = json.loads(config.read_text()); data["profile"]["rating"] += 1; self.dump(config, data)
+        result = self.run_cli("check", ok=False)
+        self.assertIn("대시보드", result.stderr)
+        self.run_cli("index")
+        self.run_cli("check")
+
     def test_blog_handoff_requires_ready_and_detects_changes(self):
         self.complete()
         self.run_cli("blog", "demo", "--ids", "1", "--title", "합성 입력 전달 예제")

@@ -312,6 +312,8 @@ def index_text():
 def index(args):
     (ROOT / "백준").mkdir(exist_ok=True)
     (ROOT / "백준/README.md").write_text(index_text(), encoding="utf-8")
+    import dashboard_export
+    dashboard_export.export(sys.modules[__name__])
 
 
 def blog_path(slug):
@@ -459,6 +461,10 @@ def check(args):
     index_path = ROOT / "백준/README.md"
     if not index_path.is_file() or index_path.read_text(encoding="utf-8") != index_text():
         raise ValueError("문제 인덱스가 최신 상태가 아닙니다. index를 실행하세요.")
+    import dashboard_export
+    dashboard_path = ROOT / "study-workflow/dashboard-data.json"
+    if not dashboard_path.is_file() or read(dashboard_path) != dashboard_export.build(sys.modules[__name__]):
+        raise ValueError("대시보드 데이터가 최신 상태가 아닙니다. index를 실행하세요.")
     print(f"기록 검사 통과: 후보 {len(ids)}개, 시작한 문제 {len(actual_paths)}개. 풀이 정답 판정은 별도입니다.")
 
 

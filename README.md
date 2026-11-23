@@ -6,6 +6,7 @@
 - **[백준 학습 현황·개념별 목차](백준/README.md)**
 - **[문제 선정부터 티스토리 작성 준비까지](study-workflow/PIPELINE.md)**
 - [첫 학습 세션](study-workflow/FIRST_SESSION.md)
+- **[선재의 문제 수첩 · 웹 대시보드](https://sunjae-problem-notebook.vongole.chatgpt.site)** · [사용법과 동기화](study-workflow/dashboard/README.md)
 
 ```text
 문제 선정 → 직접 풀이 → 로컬 테스트 → BOJ 판정 기록

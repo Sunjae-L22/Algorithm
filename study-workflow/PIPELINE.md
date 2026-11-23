@@ -194,6 +194,15 @@ python3 study-workflow/scripts/blog.py record-publication blog-workflow/posts/pr
 HTTP 200만으로 발행을 확인하지 않는다. 실제 본문과 이미지 표시까지 확인한 뒤
 개념 노트의 관련 글 링크를 추가하고 선택한 공개 노트만 GitHub에 반영한다.
 
+## 웹에서 기록 살펴보기
+
+[선재의 문제 수첩](https://sunjae-problem-notebook.vongole.chatgpt.site)에서 현재 문제·보관함·개념·복습·글감을 관리한다.
+학습 기록은 `index`가 만드는 `dashboard-data.json`을 `master`에 푸시하면 웹에서 읽을 수 있다.
+접속할 때 읽고 우측 상단 새로고침으로 다시 불러온다. 풀이 코드를 로컬에서 저장한 것만으로는 웹에 반영되지 않는다.
+문제별 생각·오늘 메모·책갈피·다음 문제·글감 선택은 로그인 계정별 클라우드 저장소에 보관한다.
+개인 기록은 GitHub에 자동 공개하지 않는다. 채점·검토 상태는 CLI의 근거 검사를 거쳐 갱신한다.
+저장과 동기화의 범위, 접속 방법은 [대시보드 안내](dashboard/README.md)에 있다.
+
 ## 설치와 점검
 
 핵심 학습 CLI는 Python 3.11 이상 표준 라이브러리로 실행된다.
