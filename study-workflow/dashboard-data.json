@@ -2,7 +2,7 @@
   "version": 1,
   "repository": "Sunjae-L22/Algorithm",
   "branch": "master",
-  "updated_at": "2026-11-23T21:37:45.789979+09:00",
+  "updated_at": "2026-11-28T20:11:50.134699+09:00",
   "profile": {
     "tier": "Gold III",
     "rating": 1222,
@@ -170,16 +170,16 @@
       "concept_id": "02_스택과큐",
       "concept": "스택·큐·덱",
       "track": "practical",
-      "status": "candidate",
-      "status_label": "후보",
+      "status": "in_progress",
+      "status_label": "풀이 중",
       "prior_solved": false,
-      "started_at": null,
+      "started_at": "2026-11-28T20:11:50.134699+09:00",
       "local_test": null,
       "submission": null,
       "review": null,
       "blog": "undecided",
-      "github_note": null,
-      "github_code": null
+      "github_note": "https://github.com/Sunjae-L22/Algorithm/blob/master/%EB%B0%B1%EC%A4%80/%EA%B0%9C%EB%85%90%EB%B3%84/02_%EC%8A%A4%ED%83%9D%EA%B3%BC%ED%81%90/2493/README.md",
+      "github_code": "https://github.com/Sunjae-L22/Algorithm/blob/master/%EB%B0%B1%EC%A4%80/%EA%B0%9C%EB%85%90%EB%B3%84/02_%EC%8A%A4%ED%83%9D%EA%B3%BC%ED%81%90/2493/solution.py"
     },
     {
       "id": 1926,
