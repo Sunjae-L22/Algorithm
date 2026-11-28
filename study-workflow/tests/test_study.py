@@ -26,6 +26,7 @@ class WorkflowTest(unittest.TestCase):
                      "reason": "도구 검증 전용", "url": f"https://acmicpc.net/problem/{pid}",
                      "cases": [{"name": "sample01", "input": "hello\n", "output": "hello\n", "source": "synthetic"}]}
                     for pid, track in [(1, "concept"), (2, "practical"), (3, "challenge")]]
+        problems[1]["solved_ac_level"] = "Silver III"
         self.dump(work / "curriculum.json", {"concepts": [concept], "problems": problems})
         self.folder = self.root / "백준/개념별/01_test/1"
 
@@ -59,6 +60,9 @@ class WorkflowTest(unittest.TestCase):
     def test_start_preserves_existing_files_and_empty_code_fails(self):
         self.run_cli("start", "1")
         original = (self.folder / "solution.py").read_text()
+        self.assertEqual(original, "# 1 Synthetic 1 [난이도 미확인]\n")
+        self.run_cli("start", "2")
+        self.assertEqual((self.folder.parent / "2/solution.py").read_text(), "# 2 Synthetic 2 [실버 3]\n")
         self.run_cli("start", "1", ok=False)
         self.assertEqual((self.folder / "solution.py").read_text(), original)
         self.run_cli("test", "1", ok=False)

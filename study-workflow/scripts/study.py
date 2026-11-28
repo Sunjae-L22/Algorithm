@@ -109,7 +109,14 @@ def start(args):
         raise ValueError("기존 문제 폴더가 있습니다. 덮어쓰지 않습니다: " + str(folder))
     folder.mkdir(parents=True)
     (folder / "tests").mkdir()
-    (folder / "solution.py").write_text(template("solution.py"), encoding="utf-8")
+    difficulty = p.get("solved_ac_level") or "난이도 미확인"
+    tiers = dict(Bronze="브론즈", Silver="실버", Gold="골드", Platinum="플래티넘", Diamond="다이아몬드", Ruby="루비")
+    tier, _, rank = difficulty.partition(" ")
+    ranks = ["I", "II", "III", "IV", "V"]
+    if tier in tiers and rank in ranks:
+        difficulty = f"{tiers[tier]} {ranks.index(rank) + 1}"
+    header = template("solution.py").format(id=p["id"], title=p["title"], difficulty=difficulty)
+    (folder / "solution.py").write_text(header, encoding="utf-8")
     note = f'# BOJ {p["id"]} · {p["title"]}\n\n[문제]({p["url"]})\n\n' + template("review.md")
     (folder / "README.md").write_text(note, encoding="utf-8")
     for case in p.get("cases", []):
