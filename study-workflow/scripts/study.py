@@ -266,7 +266,7 @@ def next_problems(args):
     print("기존 해결 목록:", f'{prof["observed_at"]} 스냅샷' if prof else "미확인 — 추천 후보의 중복 여부 확인 필요")
     baseline = cfg().get("profile", {})
     print(f'티어 기준: {baseline.get("tier", "미확인")} ({cfg()["profile_checked_at"]} 관측). 도전 표시는 학습 단계입니다.')
-    pool, urgent = [], []
+    pool, urgent, planned = [], [], []
     for p in catalog()["problems"]:
         if args.concept and p["concept"] != args.concept:
             continue
@@ -283,8 +283,11 @@ def next_problems(args):
             else:
                 urgent.append((p, "진행 중 이어서"))
         elif not previously_solved(p, prof):
-            pool.append(p)
-    picked = urgent[:args.limit]
+            if p.get("planned_for"):
+                planned.append((p, f'풀이 예정 {p["planned_for"]}'))
+            else:
+                pool.append(p)
+    picked = (urgent + sorted(planned, key=lambda item: item[0]["planned_for"]))[:args.limit]
     cycle = cfg()["selection_cycle"]
     while pool and len(picked) < args.limit:
         track = cycle[len(picked) % len(cycle)]
@@ -307,6 +310,8 @@ def index_text():
         _, folder = problem(p["id"])
         m = read(folder / "meta.json") if (folder / "meta.json").exists() else None
         state = status(folder, m) if m else ("기존 해결 · 코드 미정리" if p.get("prior_solved") else "후보")
+        if not m and not p.get("prior_solved") and p.get("planned_for"):
+            state = f'풀이 예정 {p["planned_for"]}'
         due = (m.get("reviews") or [{}])[-1].get("next_review", "—") if m else "—"
         label = f'{p["id"]} {p["title"]}'
         link = f'개념별/{p["concept"]}/{p["id"]}/README.md' if m else p["url"]

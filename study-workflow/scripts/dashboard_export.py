@@ -16,6 +16,8 @@ def build(study):
         m = study.read(folder / "meta.json") if (folder / "meta.json").exists() else None
         prior = bool(p.get("prior_solved"))
         key, label = ("previous", "기존 해결") if prior else ("candidate", "후보")
+        if not m and not prior and p.get("planned_for"):
+            label = f'풀이 예정 {p["planned_for"]}'
         local = submission = review = None
         if m:
             key, label = "in_progress", "풀이 중"
