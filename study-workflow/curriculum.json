@@ -160,7 +160,7 @@
       "verified_at": "2026-11-23",
       "verification": "BOJ 공식 제목·조건·예제 확인. 계정 해결 스냅샷에 이 제목 없음; 실시간 BOJ 동기화 지연 가능.",
       "solved_ac_id": null,
-      "solved_ac_level": null,
+      "solved_ac_level": "Silver I",
       "prior_solved": false,
       "cases": [
         {
@@ -175,7 +175,8 @@
           "output": "0\n0\n",
           "source": "자체 제작: 그림 없음"
         }
-      ]
+      ],
+      "level_source": "https://solved.ac/problems/level/10?page=1"
     },
     {
       "id": 15686,

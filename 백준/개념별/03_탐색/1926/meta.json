@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "boj_id": 1926,
+  "title": "그림",
+  "concept": "03_탐색",
+  "tags": [
+    "bfs",
+    "dfs"
+  ],
+  "created_at": "2026-11-28T21:09:33.772424+09:00",
+  "submissions": [],
+  "reviews": [],
+  "local_test": null,
+  "blog": "undecided"
+}

@@ -2,7 +2,7 @@
   "version": 1,
   "repository": "Sunjae-L22/Algorithm",
   "branch": "master",
-  "updated_at": "2026-11-28T20:49:02.872409+09:00",
+  "updated_at": "2026-11-28T21:09:33.772424+09:00",
   "profile": {
     "tier": "Gold III",
     "rating": 1222,
@@ -225,16 +225,16 @@
       "concept_id": "03_탐색",
       "concept": "DFS·BFS",
       "track": "concept",
-      "status": "candidate",
-      "status_label": "풀이 예정 2026-11-29",
+      "status": "in_progress",
+      "status_label": "풀이 중",
       "prior_solved": false,
-      "started_at": null,
+      "started_at": "2026-11-28T21:09:33.772424+09:00",
       "local_test": null,
       "submission": null,
       "review": null,
       "blog": "undecided",
-      "github_note": null,
-      "github_code": null
+      "github_note": "https://github.com/Sunjae-L22/Algorithm/blob/master/%EB%B0%B1%EC%A4%80/%EA%B0%9C%EB%85%90%EB%B3%84/03_%ED%83%90%EC%83%89/1926/README.md",
+      "github_code": "https://github.com/Sunjae-L22/Algorithm/blob/master/%EB%B0%B1%EC%A4%80/%EA%B0%9C%EB%85%90%EB%B3%84/03_%ED%83%90%EC%83%89/1926/solution.py"
     },
     {
       "id": 15686,
