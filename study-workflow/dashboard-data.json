@@ -2,7 +2,7 @@
   "version": 1,
   "repository": "Sunjae-L22/Algorithm",
   "branch": "master",
-  "updated_at": "2026-11-28T20:11:50.134699+09:00",
+  "updated_at": "2026-11-28T20:49:02.872409+09:00",
   "profile": {
     "tier": "Gold III",
     "rating": 1222,
@@ -170,14 +170,51 @@
       "concept_id": "02_스택과큐",
       "concept": "스택·큐·덱",
       "track": "practical",
-      "status": "in_progress",
-      "status_label": "풀이 중",
+      "status": "complete",
+      "status_label": "정리 완료",
       "prior_solved": false,
       "started_at": "2026-11-28T20:11:50.134699+09:00",
-      "local_test": null,
-      "submission": null,
-      "review": null,
-      "blog": "undecided",
+      "local_test": {
+        "passed": true,
+        "recorded_passed": true,
+        "stale": false,
+        "checked_at": "2026-11-28T20:49:02.673475+09:00",
+        "cases": [
+          {
+            "name": "edge01",
+            "passed": true
+          },
+          {
+            "name": "edge02",
+            "passed": true
+          },
+          {
+            "name": "edge03",
+            "passed": true
+          },
+          {
+            "name": "edge04",
+            "passed": true
+          },
+          {
+            "name": "sample01",
+            "passed": true
+          }
+        ]
+      },
+      "submission": {
+        "verdict": "AC",
+        "source": "user_report",
+        "recorded_at": "2026-11-28T20:49:02.787387+09:00",
+        "current_code": true
+      },
+      "review": {
+        "result": "complete",
+        "next_review": "2026-12-01",
+        "reviewed_at": "2026-11-28T20:49:02.872409+09:00",
+        "current": true
+      },
+      "blog": "candidate",
       "github_note": "https://github.com/Sunjae-L22/Algorithm/blob/master/%EB%B0%B1%EC%A4%80/%EA%B0%9C%EB%85%90%EB%B3%84/02_%EC%8A%A4%ED%83%9D%EA%B3%BC%ED%81%90/2493/README.md",
       "github_code": "https://github.com/Sunjae-L22/Algorithm/blob/master/%EB%B0%B1%EC%A4%80/%EA%B0%9C%EB%85%90%EB%B3%84/02_%EC%8A%A4%ED%83%9D%EA%B3%BC%ED%81%90/2493/solution.py"
     },

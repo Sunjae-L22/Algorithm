@@ -7,8 +7,94 @@
     "stack"
   ],
   "created_at": "2026-11-28T20:11:50.134699+09:00",
-  "submissions": [],
-  "reviews": [],
-  "local_test": null,
-  "blog": "undecided"
+  "submissions": [
+    {
+      "verdict": "AC",
+      "source": "user_report",
+      "evidence": "사용자가 현재 solution.py로 백준 맞았습니다 판정을 받았다고 확인",
+      "recorded_at": "2026-11-28T20:49:02.787387+09:00",
+      "solution_sha256": "8b77bfeee2baad3984f7a530c94896e9bfee5f10704d37ffa0c0205b2eda89f9"
+    }
+  ],
+  "reviews": [
+    {
+      "reviewed_at": "2026-11-28T20:49:02.872409+09:00",
+      "result": "complete",
+      "note": "오른쪽부터 미해결 인덱스를 보관하는 스택의 높이 순서와 최근접 수신 탑의 정당성, O(N) 시간·공간 검토. 공식 1개와 경계 4개 통과.",
+      "files": {
+        "solution.py": "8b77bfeee2baad3984f7a530c94896e9bfee5f10704d37ffa0c0205b2eda89f9",
+        "tests/edge01.in": "45708af5e9d6cef5f5835f27be4d8ccf48fc2730ada940f94cf9632bd19a6bc5",
+        "tests/edge02.in": "bad535dcd6186f60322ff36248da7b2db06197ef6f45bb201a067d619dc6ad3e",
+        "tests/edge03.in": "c41c637c1d340f7d3037b06c334bf67c1138ae3f90fb87ae84b8296d36fce1e8",
+        "tests/edge04.in": "c860b6d403a6c2ac965a84be93fa04cbc2baf8b6884f93caa61c0bd62feca614",
+        "tests/sample01.in": "c6147208bfd3c741c046819057f7d54fd85acd9066db5b44f99579b0222fecdf",
+        "tests/edge01.out": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "tests/edge02.out": "c5bea6d5172950ed3fc3f0433afd51fc1913e545f5dd34c849c65dc166209a00",
+        "tests/edge03.out": "3f31bc2191b8b55d447838e14cbce78ca44feba5b46c902ade4cc2eb7b68a041",
+        "tests/edge04.out": "0cf1e8f20e427ad411fe8dc4d7168b05f146c03cbaccafb535210c2cdb580ba9",
+        "tests/sample01.out": "1e1416c231c0f2f5995c33e9206e43df2272150279c6af3cffdbe64b2ba2de7d"
+      },
+      "note_sha256": "b68b8fa144cb716416e69bb4bb5864a1afea3f20d93a24d339c80b555eee53db",
+      "next_review": "2026-12-01"
+    }
+  ],
+  "local_test": {
+    "checked_at": "2026-11-28T20:49:02.673475+09:00",
+    "python": "3.11.9",
+    "timeout_seconds": 5,
+    "files": {
+      "solution.py": "8b77bfeee2baad3984f7a530c94896e9bfee5f10704d37ffa0c0205b2eda89f9",
+      "tests/edge01.in": "45708af5e9d6cef5f5835f27be4d8ccf48fc2730ada940f94cf9632bd19a6bc5",
+      "tests/edge02.in": "bad535dcd6186f60322ff36248da7b2db06197ef6f45bb201a067d619dc6ad3e",
+      "tests/edge03.in": "c41c637c1d340f7d3037b06c334bf67c1138ae3f90fb87ae84b8296d36fce1e8",
+      "tests/edge04.in": "c860b6d403a6c2ac965a84be93fa04cbc2baf8b6884f93caa61c0bd62feca614",
+      "tests/sample01.in": "c6147208bfd3c741c046819057f7d54fd85acd9066db5b44f99579b0222fecdf",
+      "tests/edge01.out": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "tests/edge02.out": "c5bea6d5172950ed3fc3f0433afd51fc1913e545f5dd34c849c65dc166209a00",
+      "tests/edge03.out": "3f31bc2191b8b55d447838e14cbce78ca44feba5b46c902ade4cc2eb7b68a041",
+      "tests/edge04.out": "0cf1e8f20e427ad411fe8dc4d7168b05f146c03cbaccafb535210c2cdb580ba9",
+      "tests/sample01.out": "1e1416c231c0f2f5995c33e9206e43df2272150279c6af3cffdbe64b2ba2de7d"
+    },
+    "cases": [
+      {
+        "name": "edge01",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0205,
+        "stderr": ""
+      },
+      {
+        "name": "edge02",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0203,
+        "stderr": ""
+      },
+      {
+        "name": "edge03",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0202,
+        "stderr": ""
+      },
+      {
+        "name": "edge04",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0202,
+        "stderr": ""
+      },
+      {
+        "name": "sample01",
+        "passed": true,
+        "result": "PASS",
+        "elapsed_seconds": 0.0201,
+        "stderr": ""
+      }
+    ],
+    "passed": true,
+    "note": "로컬 사례 검사이며 BOJ 채점·시간 제한 통과 증거가 아니다."
+  },
+  "blog": "candidate",
+  "blog_reason": "pop 시점에 가장 가까운 수신 탑을 확정하는 이유를 그림으로 설명"
 }
